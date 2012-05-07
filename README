@@ -1,0 +1,7 @@
+(beta)
+Emacsのzencoding-mode.el で展開してくれない、root-elementsに関するsnippet集です。
+
+  % rake DESTDIR=${HOME}/.emacs.d/plugins/yasnippet/snippets/text-mode/html-mode/            
+
+とやるとsnippetがインストールされます。
+本当はzencodingでやりたいです。
