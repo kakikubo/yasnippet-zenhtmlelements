@@ -1,7 +1,33 @@
 (beta)
 Emacsのzencoding-mode.el で展開してくれない、root-elementsに関するsnippet集です。
+http://code.google.com/p/zen-coding/wiki/ZenHTMLElementsEnの一部を記載していってます
 
   % rake DESTDIR=${HOME}/.emacs.d/plugins/yasnippet/snippets/text-mode/html-mode/            
 
 とやるとsnippetがインストールされます。
 本当はzencodingでやりたいです。
+
+
+
+以下のような設定ファイルを.emacsなどに記載してください。
+
+(setq yas/trigger-key "TAB")
+;; ;(setq yas/trigger-key " ")
+(require 'yasnippet-config)
+(yas/setup "~/.emacs.d/plugins/yasnippet")
+
+(add-to-list 'load-path "~/.emacs.d/elisp23/yasnippet")
+(add-to-list 'load-path "~/.emacs.d/elisp23/zencoding")
+(require 'yasnippet)
+(require 'zencoding-mode)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets/") ;snippetsのディレクトリを指定
+
+(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
+(add-hook 'html-mode-hook 'zencoding-mode)
+(add-hook 'text-mode-hook 'zencoding-mode)
+(define-key zencoding-mode-keymap (kbd "<C-return>") 'zencoding-expand-yas)
+
+
+zen-codingそのままで使えるものはC-returnを、このsnippet集でカバーできるものは
+上記の例(yas/trigger-keyでセットされている)Tabキーを押して展開してみてください。
