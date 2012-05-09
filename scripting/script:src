@@ -1,0 +1,5 @@
+#contributor : kakikubo teruo <kakikubo@gmail.com>
+#name : script:src
+#key  : script:src
+# --
+<script type="text/javascript" src="$0"></script>
