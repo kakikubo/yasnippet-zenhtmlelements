@@ -4,7 +4,7 @@ task :default => [:install_all]
 
 INSTALL_CMD = 'install -v'
 namespace :install do 
-  ['root-element','scripting'].each do |str|
+  ['root-element','scripting','conditionalcomments'].each do |str|
     desc "#{str} snippets"
     task str  do 
       if ENV['DESTDIR']
@@ -18,5 +18,8 @@ namespace :install do
 end
 
 desc "install all extra snippets"
-task :install_all => ['install:root-element','install:scripting']  do; end
+task :install_all => 
+  ['install:root-element',
+     'install:scripting',
+     'install:conditionalcomments' ]  do; end
 
